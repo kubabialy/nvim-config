@@ -34,6 +34,7 @@ Plug 'github/copilot.vim'
 Plug 'felixhummel/setcolors.vim'
 Plug 'pineapplegiant/spaceduck'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
 
 "" NEDRTree
@@ -81,17 +82,35 @@ map <C-c> :terminal<CR>
 tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 """ VARIABLES
 set background=dark
+
+lua << EOF
+require("catppuccin").setup {
+    flavour = "macchiato" -- mocha, macchiato, frappe, latter
+}
+EOF
+
 colorscheme gruvbox
-highlight ColorColumn ctermbg=0 guibg=grey
-hi SignColumn guibg=none
-hi CursorLineNR guibg=None
-highlight Normal guibg=none
-highlight LineNr guifg=#ff8659
-highlight LineNr guifg=#aed75f
-highlight LineNr guifg=#5eacd3
-highlight netrwDir guifg=#5eacd3
-highlight qfFileName guifg=#aed75f
-hi TelescopeBorder guifg=#5eacd
+
+hi Normal guibg=none ctermbg=none
+hi LineNr guibg=none ctermbg=none
+hi Folded guibg=none ctermbg=none
+hi NonText guibg=none ctermbg=none
+hi SpecialKey guibg=none ctermbg=none
+hi VertSplit guibg=none ctermbg=none
+hi SignColumn guibg=none ctermbg=none
+hi EndOfBuffer guibg=none ctermbg=none
+
+
+" highlight ColorColumn ctermbg=0 guibg=none
+" hi SignColumn guibg=none
+" hi CursorLineNR guibg=None
+" " highlight Normal guibg=none
+" highlight LineNr guifg=#ff8659
+" highlight LineNr guifg=#aed75f
+" highlight LineNr guifg=#5eacd3
+" highlight netrwDir guifg=#5eacd3
+" highlight qfFileName guifg=#aed75f
+" hi TelescopeBorder guifg=#5eacd
 set guifont=DroidSansMono_Nerd_Font:h11
 set encoding=UTF-8
 set termguicolors
@@ -109,15 +128,14 @@ set relativenumber
 set nu
 set expandtab
 set shiftwidth=2
-set softtabstop=2
+set softtabstop=4
 set nohlsearch
 set hidden
 set nowrap
 set noerrorbells
 set incsearch
 set scrolloff=12
-set bg=dark
-hi Normal ctermbg=NONE
+" hi Normal ctermbg=NONE
 
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
@@ -130,7 +148,5 @@ endfunction
 
 "" LAZY GIT""
 nnoremap <silent> <leader>gg :LazyGit<CR>
-
+autocmd FileType markdown let b:coc_suggest_disable = 1
 "command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-" hi Normal guibg=NONE ctermbg=NONE
