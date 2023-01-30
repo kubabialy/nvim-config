@@ -12,6 +12,14 @@ return require('packer').startup(function(use)
 		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
 
+  use 'github/copilot.vim'
+
+  use 'jiangmiao/auto-pairs'
+
+  use 'airblade/vim-gitgutter'
+  use 'jesseduffield/lazygit'
+  use 'kdheepak/lazygit.nvim'
+
   use 'morhetz/gruvbox'
 	use({
 		'rose-pine/neovim',
@@ -26,7 +34,6 @@ return require('packer').startup(function(use)
 	-- Harpoon
 	use('theprimeagen/harpoon')
 
-	use('kdheepak/lazygit.nvim')
 
 	use {
 		'VonHeikemen/lsp-zero.nvim',
