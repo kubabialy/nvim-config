@@ -20,6 +20,13 @@ return require('packer').startup(function(use)
   use 'jesseduffield/lazygit'
   use 'kdheepak/lazygit.nvim'
 
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = {
+      'kyazdani42/nvim-web-devicons', opt = true
+    }
+  }
+
   use 'morhetz/gruvbox'
 	use({
 		'rose-pine/neovim',
