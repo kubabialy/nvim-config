@@ -18,7 +18,7 @@ return require('packer').startup(function(use)
 
   use 'airblade/vim-gitgutter'
   use 'jesseduffield/lazygit'
-	use('kdheepak/lazygit.nvim')
+  use 'kdheepak/lazygit.nvim'
 
   use 'morhetz/gruvbox'
 	use({
