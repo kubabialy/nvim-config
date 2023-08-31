@@ -5,7 +5,6 @@ lsp.preset('recommended')
 lsp.ensure_installed({
 	'tsserver',
 	'eslint',
-	'sumneko_lua',
 	'rust_analyzer',
 	'gopls',
 	'intelephense'
@@ -18,6 +17,9 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
 	vim.keymap.set("n", "<leader>ld", function() vim.diagnostic.open_float() end, opts)
 	vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+    vim.keymap.set("n", "<leader>fr", function ()
+        vim.lsp.buf.formatting()
+    end, opts)
 end)
 
 lsp.setup()

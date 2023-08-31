@@ -7,18 +7,20 @@ return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 
-	use { 
+	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.0',
 		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
 
-  use 'github/copilot.vim'
+  use { "bluz71/vim-nightfly-colors", as = "nightfly" }
 
-  use 'jiangmiao/auto-pairs'
+  use 'github/copilot.vim'
 
   use 'airblade/vim-gitgutter'
   use 'jesseduffield/lazygit'
   use 'kdheepak/lazygit.nvim'
+
+  use 'Abstract-IDE/Abstract-cs'
 
   use {
     'nvim-lualine/lualine.nvim',
