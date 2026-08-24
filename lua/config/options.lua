@@ -28,3 +28,20 @@ opt.swapfile = false
 opt.backup = false
 opt.undofile = true
 opt.isfname:append("@-@")
+
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "E",
+      [vim.diagnostic.severity.WARN] = "W",
+      [vim.diagnostic.severity.INFO] = "I",
+      [vim.diagnostic.severity.HINT] = "H",
+    },
+  },
+  underline = true,
+  severity_sort = true,
+  virtual_text = {
+    spacing = 2,
+    prefix = "●",
+  },
+})
